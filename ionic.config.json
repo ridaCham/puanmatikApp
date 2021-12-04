@@ -1,0 +1,7 @@
+{
+  "name": "puanmatikApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

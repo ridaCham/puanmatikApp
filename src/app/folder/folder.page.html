@@ -1,0 +1,67 @@
+<ion-header >
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>puanmatikApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div>
+  <ion-card>
+    <ion-card-header id="titleCard">
+      <!--ion-card-subtitle></ion-card-subtitle-->
+      <ion-card-title>YGS Puan Hesaplama </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lutfen istenilen notlari giriniz
+    </ion-card-content>
+  </ion-card>
+ </div>
+   <!-- notlar inputs-->
+   <div>
+    <!--mat notu-->
+  <ion-item>
+    <ion-range min="0" max="20" color="secondary" [(ngModel)]="mat" (ngModelChange)="hesapla()" >
+      <ion-label slot="start">Mat</ion-label>
+      <ion-label slot="end">{{mat}}</ion-label>
+    </ion-range>  
+  </ion-item>
+    <!--Fen notu-->
+  <ion-item>
+    <ion-range min="0" max="40" color="secondary"  [(ngModel)]="fen" (ngModelChange)="hesapla()">
+      <ion-label slot="start">Fen</ion-label>
+      <ion-label slot="end">{{fen}}</ion-label>
+    </ion-range>
+  </ion-item>
+   <!--Sosyal  notu-->
+  <ion-item>
+    <ion-range min="0" max="40" color="secondary"  [(ngModel)]="sos" (ngModelChange)="hesapla()">
+      <ion-label slot="start">Sos</ion-label>
+      <ion-label slot="end">{{sos}}</ion-label>
+    </ion-range>
+  </ion-item>
+   <!--Turkce notu-->
+  <ion-item>
+    <ion-range min="0" max="20" color="secondary"  [(ngModel)]="tur" (ngModelChange)="hesapla()">
+      <ion-label slot="start">Tur</ion-label>
+      <ion-label slot="end">{{tur}}</ion-label>
+    </ion-range>
+  </ion-item>
+  </div>
+  <!-- Sonuc Card-->
+  <div id="sonucCard" >
+    <ion-card  color="{{sonuc>300 ? 'dark' :''}}">
+      <ion-card-header class="{{sonuc>300 ? 'animate__animated animate__jello' : ''}}">
+        <ion-card-subtitle> {{ !sonuc || sonuc<100  ? 'merhaba' : sonuc>300 ? 'Süpersin adamım' : 'calısmalısın...'}}</ion-card-subtitle>
+        <ion-card-title>{{ !sonuc || sonuc<100 ? 'Sonuç yok' : 'YGS '+ sonuc+' Puan' }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+  <div id="container">
+    <strong class="capitalize">{{ folder }}</strong>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content>
